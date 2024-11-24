@@ -10,6 +10,7 @@ import { Logout } from './components/Logout/Logout';
 import { Catalog } from './components/Catalog/Catalog';
 import './App.css';
 import { MovieDetails } from './components/MovieDetails/MovieDetails';
+import { About } from './components/About/About';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
                 <Route path='/logout' element={<Logout />} />
                 <Route path='/catalog' element={<Catalog />} />
                 <Route path='/catalog/:movieId' element={<MovieDetails />} />
+                <Route path='/aboutus' element={<About />} />
             </Routes>
         </div>
         <Footer />
