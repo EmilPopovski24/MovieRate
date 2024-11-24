@@ -11,6 +11,7 @@ import { Catalog } from './components/Catalog/Catalog';
 import './App.css';
 import { MovieDetails } from './components/MovieDetails/MovieDetails';
 import { About } from './components/About/About';
+import { Profile } from './components/Profile/Profile';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
                 <Route path='/logout' element={<Logout />} />
                 <Route path='/catalog' element={<Catalog />} />
                 <Route path='/catalog/:movieId' element={<MovieDetails />} />
+                <Route path='/profile' element={<Profile />} />
                 <Route path='/about' element={<About />} />
             </Routes>
         </div>
