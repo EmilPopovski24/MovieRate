@@ -9,6 +9,7 @@ import { Login } from './components/Login/Login';
 import { Logout } from './components/Logout/Logout';
 import { Catalog } from './components/Catalog/Catalog';
 import './App.css';
+import { MovieDetails } from './components/MovieDetails/MovieDetails';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
                 <Route path='/login' element={<Login />} />
                 <Route path='/logout' element={<Logout />} />
                 <Route path='/catalog' element={<Catalog />} />
+                <Route path='/catalog/:movieId' element={<MovieDetails />} />
             </Routes>
         </div>
         <Footer />
