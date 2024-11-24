@@ -12,9 +12,9 @@ import { MovieDetails } from './components/MovieDetails/MovieDetails';
 import { About } from './components/About/About';
 import { Profile } from './components/Profile/Profile';
 import { AddMovie } from './components/AddMovie/AddMovie';
+import { EditMovie } from './components/EditMovie/EditMovie';
 
 import './App.css';
-import { EditMovie } from './components/EditMovie/EditMovie';
 
 
 function App() {
