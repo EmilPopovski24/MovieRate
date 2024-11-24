@@ -3,8 +3,6 @@ body {
     color: #282c34; 
 }
 
-/* .username {
-    position:absolute;
-    right:100px;
-    top:15px;
-} */
+.username {
+    top:25px;
+}
