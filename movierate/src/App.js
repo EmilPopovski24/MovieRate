@@ -8,10 +8,11 @@ import { Register } from './components/Register/Register';
 import { Login } from './components/Login/Login';
 import { Logout } from './components/Logout/Logout';
 import { Catalog } from './components/Catalog/Catalog';
-import './App.css';
 import { MovieDetails } from './components/MovieDetails/MovieDetails';
 import { About } from './components/About/About';
 import { Profile } from './components/Profile/Profile';
+
+import './App.css';
 
 function App() {
   return (
