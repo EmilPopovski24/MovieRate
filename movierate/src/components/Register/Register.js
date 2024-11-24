@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 
+import './Register.css';
+
 export const Register = () => {
     return(
         <>
         <div>
-            <form style={{width:"50%", margin: "80px auto"}} id="register-form" method="POST">
+            <form className="register-form" method="POST">
                 <h1 className="register-header">Register</h1>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
