@@ -34,7 +34,7 @@ export const Header = () => {
                                 <h6>Hello, you</h6>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/account">My Account</Link>
+                                <Link className="nav-link" to="/profile">My Profile</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/catalog">Catalog</Link>
