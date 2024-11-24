@@ -14,6 +14,7 @@ import { Profile } from './components/Profile/Profile';
 import { AddMovie } from './components/AddMovie/AddMovie';
 
 import './App.css';
+import { EditMovie } from './components/EditMovie/EditMovie';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
                 <Route path='/catalog' element={<Catalog />} />
                 <Route path='/addmovie' element={<AddMovie />} />
                 <Route path='/catalog/:movieId' element={<MovieDetails />} />
+                <Route path='/catalog/:movieId/edit' element={<EditMovie />} />
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/about' element={<About />} />
             </Routes>
