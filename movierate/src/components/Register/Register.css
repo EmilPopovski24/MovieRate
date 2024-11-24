@@ -2,3 +2,21 @@
     width:50%;
     margin: 80px auto;
 }
+
+.register-header{
+    margin:50px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.loginoption {
+    margin-top:20px;
+}
+
+.btn-primary {
+    text-decoration: none;
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+}
