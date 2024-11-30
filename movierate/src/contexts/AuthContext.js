@@ -37,9 +37,15 @@ export const AuthProvider = ({
         }
     };
 
+    const onLogout = async() => {
+        await authService.logout();
+        setAuth({});
+    }
+
     const contextValues = {
         onLoginSubmit,
         onRegisterSubmit,
+        onLogout,
         token:auth.accessToken,
         userId: auth._id,
         userEmail: auth.email,

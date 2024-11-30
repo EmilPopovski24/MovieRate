@@ -11,7 +11,7 @@ export const Register = () => {
     const { values, changeHandler, onSubmit } = useForm({
         'email':'',
         'password': '',
-        'confirm-password':'',
+        'confirmPassword':'',
     }, onRegisterSubmit)
 
     return(
@@ -30,7 +30,7 @@ export const Register = () => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Confirm Password</label>
-                    <input name="confirm-password" type="password" className="form-control" id="confirm-password" value={values['confirm-password']} onChange={changeHandler} required/>
+                    <input name="confirmPassword" type="password" className="form-control" id="confirmPassword" value={values['confirmPassword']} onChange={changeHandler} required/>
                 </div>      
                 <button type="submit" className="btn-primary">Register</button>
                 <div className="loginoption">
