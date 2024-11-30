@@ -60,7 +60,7 @@ export const AuthProvider = ({
     )
 };
 
-export const useAuthContext = () => {
-    const context = useContext(AuthContext);
-    return context;
-}
+// export const useAuthContext = () => {
+//     const context = useContext(AuthContext);
+//     return context;
+// }
