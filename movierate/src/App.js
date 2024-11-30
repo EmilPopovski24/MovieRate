@@ -16,6 +16,9 @@ import { EditMovie } from './components/EditMovie/EditMovie';
 import { AuthProvider } from './contexts/AuthContext';
 
 import './App.css';
+import { withAuth } from './components/hoc/withAuth';
+
+const EnhancedLogin = withAuth(Login)
 
 function App() {
   return (
@@ -26,7 +29,7 @@ function App() {
             <Routes >    
                 <Route path='/' element={<Home />}/>
                 <Route path='/register' element={<Register />} />
-                <Route path='/login' element={<Login auth={auth}/>} />
+                <Route path='/login' element={<EnhancedLogin />} />
                 <Route path='/logout' element={<Logout />} />
                 <Route path='/catalog' element={<Catalog />} />
                 <Route path='/addmovie' element={<AddMovie />} />

@@ -13,7 +13,7 @@ export const Login = ({
 
     const [values, changeHandler, onSubmit] = useForm({
         "email":'',
-        "password": ''
+        "password": '',
     }, onLoginSubmit)
 
     return (

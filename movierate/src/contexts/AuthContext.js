@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../hooks/useLocalStorage"; 
 import { authServiceFactory } from "../services/authService";
@@ -34,5 +34,9 @@ export const AuthProvider = ({
             {children}
         </AuthContext.Provider>
     )
+};
 
+export const useAuthContext = () => {
+    const context = useContext(AuthContext);
+    return context;
 }
