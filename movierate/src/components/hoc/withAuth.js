@@ -1,10 +1,11 @@
-import { useAuthContext } from "../../contexts/AuthContext"
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export const withAuth = (Component) => {
 
     const WrapperComponent = (props) => {
         
-        const authContext = useAuthContext();
+        const authContext = useContext(AuthContext);
         
         return (
             <Component {...props} auth={authContext} />
