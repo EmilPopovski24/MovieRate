@@ -5,7 +5,7 @@ import './Login.css';
 export const Login = () => {
     return (
         <>
-           <section id="login-page" className="auth">
+           <section id="login-page" className="auth" >
             <form className="login-form" method="POST">
                 <h1 className="login-header">Login</h1>
                 <div className="mb-3">
