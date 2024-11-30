@@ -1,12 +1,23 @@
 import { Link } from "react-router-dom";
-
+import { useForm } from "../../hooks/useForm";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 import './Register.css';
 
 export const Register = () => {
+
+    const { onRegisterSubmit } = useContext(AuthContext);
+
+    const [values, changeHandler, onSubmit] = useForm({
+        'email':'',
+        'password': '',
+        'confirm-password':'',
+    }, onRegisterSubmit)
+
     return(
         <>
         <div>
-            <form className="register-form" method="POST">
+            <form className="register-form" method="POST" >
                 <h1 className="register-header">Register</h1>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
