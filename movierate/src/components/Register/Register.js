@@ -8,7 +8,7 @@ export const Register = () => {
 
     const { onRegisterSubmit } = useContext(AuthContext);
 
-    const [values, changeHandler, onSubmit] = useForm({
+    const { values, changeHandler, onSubmit } = useForm({
         'email':'',
         'password': '',
         'confirm-password':'',
@@ -17,20 +17,20 @@ export const Register = () => {
     return(
         <>
         <div>
-            <form className="register-form" method="POST" >
+            <form className="register-form" method="POST" onSubmit={onSubmit}>
                 <h1 className="register-header">Register</h1>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                    <input name="email"  type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required/>
+                    <input name="email"  type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={values.email} onChange={changeHandler} required/>
                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                    <input name="password"  type="password" className="form-control" id="exampleInputPassword1" required/>
+                    <input name="password"  type="password" className="form-control" id="exampleInputPassword1" value={values.password} onChange={changeHandler} required/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Confirm Password</label>
-                    <input name="confirm-password" type="password" className="form-control" id="confirm-password" required/>
+                    <input name="confirm-password" type="password" className="form-control" id="confirm-password" value={values['confirm-password']} onChange={changeHandler} required/>
                 </div>      
                 <button type="submit" className="btn-primary">Register</button>
                 <div className="loginoption">

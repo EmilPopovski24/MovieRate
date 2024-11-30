@@ -18,10 +18,28 @@ export const AuthProvider = ({
         setAuth(result);
         navigate('/catalog');
         alert("You are welcome!")
-    }
+    };
+
+    const onRegisterSubmit = async(data) => {
+        const { confirmPassword, ...registerData } = data;
+        if(confirmPassword !== registerData.password) {
+          alert("Both passwords do not match!")
+          return;
+        };
+    
+        try {
+            const result = await authService.register(data);
+            setAuth(result);     
+            alert("Successful registration") 
+            navigate('/catalog')
+        } catch (error) {
+            alert("User with the same details (email or username) already exists!")
+        }
+    };
 
     const contextValues = {
         onLoginSubmit,
+        onRegisterSubmit,
         token:auth.accessToken,
         userId: auth._id,
         userEmail: auth.email,
