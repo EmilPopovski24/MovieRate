@@ -13,10 +13,9 @@ import { About } from './components/About/About';
 import { Profile } from './components/Profile/Profile';
 import { AddMovie } from './components/AddMovie/AddMovie';
 import { EditMovie } from './components/EditMovie/EditMovie';
-
-import './App.css';
 import { AuthProvider } from './contexts/AuthContext';
 
+import './App.css';
 
 function App() {
   return (
@@ -27,7 +26,7 @@ function App() {
             <Routes >    
                 <Route path='/' element={<Home />}/>
                 <Route path='/register' element={<Register />} />
-                <Route path='/login' element={<Login />} />
+                <Route path='/login' element={<Login auth={auth}/>} />
                 <Route path='/logout' element={<Logout />} />
                 <Route path='/catalog' element={<Catalog />} />
                 <Route path='/addmovie' element={<AddMovie />} />
