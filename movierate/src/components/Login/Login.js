@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 
-import './Login.css';
 import { useForm } from '../../hooks/useForm';
 
-
+import './Login.css';
 
 export const Login = ({
     auth
@@ -11,7 +10,7 @@ export const Login = ({
 
     const { onLoginSubmit } = auth;
 
-    const [values, changeHandler, onSubmit] = useForm({
+    const { values, changeHandler, onSubmit } = useForm({
         "email":'',
         "password": '',
     }, onLoginSubmit)
