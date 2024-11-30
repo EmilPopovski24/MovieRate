@@ -24,7 +24,10 @@ export const AuthProvider = ({
     const contextValues = {
         onLoginSubmit,
         token:auth.accessToken,
-        
+        userId: auth._id,
+        userEmail: auth.email,
+        username: auth.username,
+        isAuthenticated: !!auth.accessToken 
     }
 
     return (
