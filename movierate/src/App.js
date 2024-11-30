@@ -15,9 +15,7 @@ import { AddMovie } from './components/AddMovie/AddMovie';
 import { EditMovie } from './components/EditMovie/EditMovie';
 import { AuthProvider } from './contexts/AuthContext';
 import { withAuth } from './components/hoc/withAuth';
-
 import './App.css';
-
 
 const EnhancedLogin = withAuth(Login)
 
