@@ -15,10 +15,12 @@ import { AddMovie } from './components/AddMovie/AddMovie';
 import { EditMovie } from './components/EditMovie/EditMovie';
 
 import './App.css';
+import { AuthProvider } from './contexts/AuthContext';
 
 
 function App() {
   return (
+    <AuthProvider>
     <div className="App">
         <Header />
         <div className='main-content'>
@@ -37,6 +39,7 @@ function App() {
         </div>
         <Footer />
     </div>
+    </AuthProvider>
   );
 }
 
