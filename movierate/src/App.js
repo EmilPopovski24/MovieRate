@@ -32,6 +32,7 @@ function App() {
                 <Route path='/addmovie' element={<AddMovie />} />
                 <Route path='/catalog/:movieId' element={<MovieDetails />} />
                 <Route path='/catalog/:movieId/edit' element={<EditMovie />} />
+                <Route path='/standings' element={<EditMovie />} />
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/about' element={<About />} />
             </Routes>
