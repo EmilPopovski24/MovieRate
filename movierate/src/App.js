@@ -13,6 +13,7 @@ import { AddMovie } from './components/AddMovie/AddMovie';
 import { EditMovie } from './components/EditMovie/EditMovie';
 import { AuthProvider } from './contexts/AuthContext';
 import { withAuth } from './components/hoc/withAuth';
+import { Ranking } from './components/Ranking/Ranking';
 import './App.css';
 
 const EnhancedLogin = withAuth(Login)
@@ -32,7 +33,7 @@ function App() {
                 <Route path='/addmovie' element={<AddMovie />} />
                 <Route path='/catalog/:movieId' element={<MovieDetails />} />
                 <Route path='/catalog/:movieId/edit' element={<EditMovie />} />
-                <Route path='/standings' element={<EditMovie />} />
+                <Route path='/ranking' element={<Ranking />} />
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/about' element={<About />} />
             </Routes>
