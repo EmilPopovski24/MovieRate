@@ -1,0 +1,33 @@
+body {
+    margin:0
+}
+
+h1 {
+    margin: 30px auto;
+    margin-right:auto;
+    margin-left: auto; 
+    text-align:center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h5 {
+    color: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    text-align:center;
+    margin:auto;
+}
+
+.welcome-message {
+    text-align: center;
+    margin:10px;
+}
+
+.start-pic {
+    display:block;
+    margin:auto;
+    border:none;
+    max-width:  45%;
+    max-height: 30%;
+}
