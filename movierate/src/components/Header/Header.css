@@ -1,0 +1,10 @@
+body {
+    position:relative;
+    color: #282c34; 
+}
+
+.username {
+    position:absolute;
+    right:100px;
+    top:15px;
+}
