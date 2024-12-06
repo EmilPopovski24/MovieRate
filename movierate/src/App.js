@@ -7,10 +7,12 @@ import { Login } from './components/Login/Login';
 import { Register } from './components/Register/Register';
 import { Logout } from './components/Logout/Logout';
 import { Catalog } from './components/Catalog/Catalog';
-
-import './App.css';
 import { AddMovie } from './components/AddMovie/AddMovie';
 import { EditMovie } from './components/EditMovie/EditMovie';
+import { Account } from './components/Account/Account';
+
+import './App.css';
+
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
 				<Route path="/catalog" element={<Catalog />} />
 				<Route path='/addmovie' element={<AddMovie />} />
 				<Route path="/editmovie" element={<EditMovie />} />
+				<Route path='/account' element={<Account />} />
       		</Routes>
 		<Footer />
     </div>
