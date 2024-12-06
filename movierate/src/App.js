@@ -9,6 +9,8 @@ import { Logout } from './components/Logout/Logout';
 import { Catalog } from './components/Catalog/Catalog';
 
 import './App.css';
+import { AddMovie } from './components/AddMovie/AddMovie';
+import { EditMovie } from './components/EditMovie/EditMovie';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
 				<Route path="/register" element={<Register />} />
 				<Route path="/logout" element={<Logout />} />
 				<Route path="/catalog" element={<Catalog />} />
+				<Route path='/addmovie' element={<AddMovie />} />
+				<Route path="/editmovie" element={<EditMovie />} />
       		</Routes>
 		<Footer />
     </div>
