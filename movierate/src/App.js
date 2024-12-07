@@ -13,7 +13,9 @@ import { Account } from './components/Account/Account';
 import { AuthProvider } from './contexts/AuthContext';
 
 import './App.css';
+import { withAuth } from './components/hoc/withAuth';
 
+const EnhancedLogin = withAuth(Login)
 
 function App() {
   return (
@@ -22,7 +24,7 @@ function App() {
 		<Header />
       		<Routes>
     			<Route path="/" element={<Home />} />
-				<Route path="/login" element={<Login />} />		
+				<Route path="/login" element={<EnhancedLogin />} />		
 				<Route path="/register" element={<Register />} />
 				<Route path="/logout" element={<Logout />} />
 				<Route path="/catalog" element={<Catalog />} />

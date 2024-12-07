@@ -19,7 +19,7 @@ export const AuthProvider = ({
         const result = await authService.login(loginData);
         setAuth(result);
         navigate('/catalog');
-        return
+        alert('Welcome!')
     }
 
     const contextValues = {
@@ -28,7 +28,8 @@ export const AuthProvider = ({
         token: auth.accessToken,
         userEmail: auth.email,
         username: auth.username,
-        isAuthenticated: !!auth.accessToken 
+        isAuthenticated: !!auth.accessToken,
+        auth
     }
 
     return(
