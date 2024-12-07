@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
-
-import './Register.css';
 import { useContext } from 'react';
+
 import { AuthContext } from '../../contexts/AuthContext';
 import { useForm } from '../../hooks/useForm';
+
+import './Register.css';
 
 export const Register = () => {
 
@@ -17,7 +18,7 @@ export const Register = () => {
     return (
         <>
         <div>
-            <form style={{width:"50%", margin: "80px auto"}} id="register-form"  method="POST" onSubmit={onSubmit}>
+            <form className='register-form' id="register-form"  method="POST" onSubmit={onSubmit}>
                 <h1 className="register-header">Register</h1>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
