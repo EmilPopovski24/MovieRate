@@ -10,6 +10,7 @@ import { Catalog } from './components/Catalog/Catalog';
 import { AddMovie } from './components/AddMovie/AddMovie';
 import { EditMovie } from './components/EditMovie/EditMovie';
 import { Account } from './components/Account/Account';
+import { AuthProvider } from './contexts/AuthContext';
 
 import './App.css';
 
@@ -17,6 +18,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+		<AuthProvider>
 		<Header />
       		<Routes>
     			<Route path="/" element={<Home />} />
@@ -29,6 +31,7 @@ function App() {
 				<Route path='/account' element={<Account />} />
       		</Routes>
 		<Footer />
+		</AuthProvider>
     </div>
   );
 }
