@@ -5,12 +5,14 @@ import { useForm } from '../../hooks/useForm';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 
-export const Login = () => {
+export const Login = ({
+    auth
+}) => {
     
     const { onLoginSubmit } = useContext(AuthContext);
     const { values, onSubmit, changeHanlder } = useForm({
-        email: '',
-        password: '',
+        'email': '',
+        'password': '',
     }, onLoginSubmit)
 
     return (

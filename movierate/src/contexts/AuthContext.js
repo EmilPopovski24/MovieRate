@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { Children, createContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { authServiceFactory } from "../services/authService";
@@ -7,7 +7,9 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 
 export const AuthContext = createContext();
 
-export const AuthProvider = () => {
+export const AuthProvider = ({
+    children
+}) => {
 
     const navigate = useNavigate();
     const [auth, setAuth] = useLocalStorage('auth', {});
@@ -16,12 +18,23 @@ export const AuthProvider = () => {
     const onLoginSubmit = async(loginData) => {
         const result = await authService.login(loginData);
         setAuth(result);
-        navigate('/catalog')
+        navigate('/catalog');
         return
     }
 
+    const contextValues = {
+        onLoginSubmit,
+        userId: auth._id,
+        token: auth.accessToken,
+        userEmail: auth.email,
+        username: auth.username,
+        isAuthenticated: !!auth.accessToken 
+    }
+
     return(
-        onLoginSubmit
+        <AuthContext.Provider value={contextValues}>
+            {children}
+        </AuthContext.Provider>
     )
 
 }
