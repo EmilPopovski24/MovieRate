@@ -43,7 +43,6 @@ export const AuthProvider = ({
     const onLogout = async() => {
         await authService.logout()
         setAuth({});
-        navigate('/login')
     }
 
     const contextValues = {
