@@ -1,0 +1,28 @@
+.details-button {
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    color: antiquewhite;
+    padding: 5px 10px;
+    text-decoration: none;
+    border:none;
+    border-radius:5px;
+}
+
+.details-button:hover {
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+}
+
+.card {
+    margin: 40px;
+    width:20%;
+}
+
+.card-img-top {
+    height: 400px;
+}
