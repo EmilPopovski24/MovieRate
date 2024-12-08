@@ -20,7 +20,7 @@ export const MovieProvider = ({
                     setMovies(result)
                 })
         }
-    });
+    },[]);
 
     const onAddMovieSubmit = async(data) => {
         const newMovie = await movieService.addMovie(data);
