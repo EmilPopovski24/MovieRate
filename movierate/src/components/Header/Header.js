@@ -35,7 +35,7 @@ export const Header = () => {
                     <div id="logged-user">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <h6>Hello, username</h6>
+                                <h6>Hello, {userEmail.split('@')[0]}</h6>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/account">My Account</Link>
@@ -51,7 +51,7 @@ export const Header = () => {
                             </li>
                         </ul>
                     </div>  
-               }
+                }
         </div>
   </div>
 </nav>
