@@ -25,7 +25,7 @@ export const MovieProvider = ({
     const onAddMovieSubmit = async(data) => {
         const newMovie = await movieService.addMovie(data);
         setMovies(state => [...state, newMovie]);
-        navigate('/catalog')
+        navigate('/catalog');
     }
 
     const contextValues = {
