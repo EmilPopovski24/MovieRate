@@ -18,11 +18,17 @@ export const movieServiceFactory = (token) => {
         return movies;
     }
 
+    const getOneMovie = async(movieId) => {
+        const result = await request.get(`${moviesUrl}/${movieId}`);
+        return result
+    }
+
 
 
     return {
         addMovie,
-        getAllMovies
+        getAllMovies,
+        getOneMovie
     }
 
 }

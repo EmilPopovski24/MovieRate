@@ -1,11 +1,22 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { MovieContext } from "../../contexts/MovieContext";
+import { useParams } from "react-router-dom";
+import { movieServiceFactory } from "../../services/movieService";
 
 
 export const MovieDetails = () => {
 
     const [movie, setMovie] = useState({});
+    const { movieId } = useParams();
+    const movieService = movieServiceFactory()
 
-    
+    useEffect(()=> {
+        movieService.getOneMovie(movieId)
+            .then(result => {
+                setMovie(result)
+            })
+    },[movieId])
+
 
     return(
         <>
