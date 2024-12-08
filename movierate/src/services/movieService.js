@@ -14,8 +14,8 @@ export const movieServiceFactory = (token) => {
 
     const getAllMovies = async() => {
         const result = await request.get(moviesUrl);
-        // const movies = Object.values(result);
-        return result
+        const movies = Object.values(result);
+        return movies;
     }
 
 
