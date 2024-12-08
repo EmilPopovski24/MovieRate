@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
-import { MovieContext } from "../../contexts/MovieContext";
 import { useParams } from "react-router-dom";
+
 import { movieServiceFactory } from "../../services/movieService";
 
+import "./MovieDetails.css";
 
 export const MovieDetails = () => {
 
