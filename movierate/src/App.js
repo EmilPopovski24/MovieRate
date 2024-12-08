@@ -13,6 +13,7 @@ import { Account } from './components/Account/Account';
 import { AuthProvider } from './contexts/AuthContext';
 
 import './App.css';
+import { MovieProvider } from './contexts/MovieContext';
 // import { withAuth } from './components/hoc/withAuth';
 
 // const EnhancedLogin = withAuth(Login);
@@ -21,6 +22,7 @@ function App() {
   return (
     <div className="App">
 		<AuthProvider>
+		<MovieProvider>
 		<Header />
       		<Routes>
     			<Route path="/" element={<Home />} />
@@ -33,6 +35,7 @@ function App() {
 				<Route path='/account' element={<Account />} />
       		</Routes>
 		<Footer />
+		</MovieProvider>
 		</AuthProvider>
     </div>
   );
