@@ -1,6 +1,6 @@
 import { requestFactory } from "./requester"
 
-const moviesUrl = 'localhost:3030/data/movies'
+const moviesUrl = 'http://localhost:3030/data/movies'
 
 
 export const movieServiceFactory = (token) => {
@@ -12,10 +12,10 @@ export const movieServiceFactory = (token) => {
         return result
     }
 
-    const getAllMovies = () => {
-        const result = request.get(moviesUrl);
-        const movies = Object.values(result);
-        return movies
+    const getAllMovies = async() => {
+        const result = await request.get(moviesUrl);
+        // const movies = Object.values(result);
+        return result
     }
 
 

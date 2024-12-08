@@ -22,8 +22,6 @@ export const MovieProvider = ({
         }
     });
 
-    console.log(movies)
-
     const onAddMovieSubmit = async(data) => {
         const newMovie = await movieService.addMovie(data);
         setMovies(state => [...state, newMovie]);
@@ -40,5 +38,4 @@ export const MovieProvider = ({
             {children}
         </MovieContext.Provider>
     )
-
 } 
