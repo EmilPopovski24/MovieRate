@@ -27,6 +27,7 @@ function App() {
 		<AuthProvider>
 		<MovieProvider>
 		<Header />
+			<div className='main-content'>
       		<Routes>
     			<Route path="/" element={<Home />} />
 				<Route path="/login" element={<Login />} />		
@@ -38,6 +39,7 @@ function App() {
 				<Route path="/editmovie" element={<EditMovie />} />
 				<Route path='/account' element={<Account />} />
       		</Routes>
+			</div>
 		<Footer />
 		</MovieProvider>
 		</AuthProvider>
