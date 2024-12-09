@@ -8,7 +8,11 @@
     margin: auto;
 }
 
-.movies-list {
+/* .movies-list {
+   
+} */
+
+.catalog-page {
     display: flex;
     flex-direction: row;
 }

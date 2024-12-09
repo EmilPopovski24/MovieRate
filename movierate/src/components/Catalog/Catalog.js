@@ -15,7 +15,7 @@ export const Catalog = () => {
         {movies.length > 0 && (
             <h1 className="catalog-movies">Movies</h1>
         )}
-        <div id='catalog-page'>
+        <div className='catalog-page'>
             {movies.map(x=> <MovieItem key={x._id} {...x} />)}
         </div>
         {movies.length === 0 && (
