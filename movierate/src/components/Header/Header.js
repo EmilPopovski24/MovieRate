@@ -36,9 +36,6 @@ export const Header = () => {
                     <div id="logged-user">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <h6>Hello, {userEmail.split('@')[0]}</h6>
-                            </li>
-                            <li className="nav-item">
                                 <Link className="nav-link" to="/account">My Account</Link>
                             </li>
                             <li className="nav-item">
@@ -49,6 +46,9 @@ export const Header = () => {
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/logout">Logout</Link>
+                            </li>
+                            <li className="nav-item-username">
+                                <h6>Hello, {userEmail.split('@')[0]}</h6>
                             </li>
                         </ul>
                     </div>  

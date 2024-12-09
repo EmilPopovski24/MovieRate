@@ -8,3 +8,9 @@ body {
     right:100px;
     top:15px;
 }
+
+.nav-item-username {
+    list-style: none;
+    flex-direction: row;
+
+}
