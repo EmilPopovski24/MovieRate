@@ -1,7 +1,9 @@
 import { useContext } from "react";
-import "./AddMovie.css";
+
 import { MovieContext } from "../../contexts/MovieContext";
 import { useForm } from "../../hooks/useForm";
+
+import "./AddMovie.css";
 
 export const AddMovie = () => {
 
