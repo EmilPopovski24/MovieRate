@@ -9,8 +9,9 @@ body {
     top:15px;
 }
 
-.nav-item-username {
-    list-style: none;
-    flex-direction: row;
-
+#logged-user {
+    float:right;
+    margin-right: 20px;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
