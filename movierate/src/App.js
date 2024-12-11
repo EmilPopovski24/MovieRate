@@ -17,10 +17,6 @@ import { MovieProvider } from './contexts/MovieContext';
 import './App.css';
 
 
-// import { withAuth } from './components/hoc/withAuth';
-
-// const EnhancedLogin = withAuth(Login);
-
 function App() {
   return (
     <div className="App">
