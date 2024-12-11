@@ -1,21 +1,30 @@
 import { useParams } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import "./EditMovie.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { MovieContext } from "../../contexts/MovieContext";
+import { movieServiceFactory } from "../../services/movieService";
 
 export const EditMovie = () => {
 
     const { movieId } = useParams();
     const { onEditMovieSubmit } = useContext(MovieContext);
-    const { values, changeHandler, onSubmit } = useForm({
+    const movieService = movieServiceFactory();
+    const { values, changeHandler, onSubmit, changeValues } = useForm({
         title:'',
         year: '',
         genre:'',
         director:'',
         coverUrl:'',
         summary:'',
-    })
+    }, onEditMovieSubmit);
+
+    useEffect(() => {
+        movieService.getOneMovie(movieId)
+            .then(result => {
+                changeValues(result)
+            })
+    },[movieId])
 
     return (
         <>
@@ -48,7 +57,6 @@ export const EditMovie = () => {
             </div> 
         </form>
         </section>
-
         </>
     )
 }
