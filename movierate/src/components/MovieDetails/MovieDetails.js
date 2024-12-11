@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState, Link } from "react"
 import { useParams } from "react-router-dom";
 
 import { movieServiceFactory } from "../../services/movieService";
@@ -39,12 +39,14 @@ export const MovieDetails = () => {
                             <li className="movie-info-li"><b>Genre: </b>{movie.genre}</li>
                             <li className="movie-info-summary"><p id="text">{movie.summary}</p></li>
                         </ul>
+                        {isOwner &&
                         <div className="owner-actions">
                         <ul>
-                            <li className="owner-li"><button className="btn-primary">Edit</button></li>
+                            <li className="owner-li"><button className="btn-primary"> <Link to={`/catalog/${movie._id}/edit`}>Edit</Link></button></li>
                             <li className="owner-li"><button className="btn-primary">Delete</button></li>
                         </ul>
                         </div>
+                        }
                     </div>
                 </div>
             </section> 
