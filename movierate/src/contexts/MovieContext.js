@@ -26,10 +26,17 @@ export const MovieProvider = ({
         const newMovie = await movieService.addMovie(data);
         setMovies(state => [...state, newMovie]);
         navigate('/catalog');
+    };
+
+    const onEditMovieSubmit = async(values) => {
+        const result = await movieService.editMovie(values._id, values);
+        setMovies(state => state.map( x => x._id === values._id ? result : x));
+        navigate(`/catalog/${values._id}`)
     }
 
     const contextValues = {
         onAddMovieSubmit,
+        onEditMovieSubmit,
         movies
     }
 

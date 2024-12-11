@@ -1,10 +1,26 @@
+import { useParams } from "react-router-dom";
+import { useForm } from "../../hooks/useForm";
 import "./EditMovie.css";
+import { useContext } from "react";
+import { MovieContext } from "../../contexts/MovieContext";
 
 export const EditMovie = () => {
+
+    const { movieId } = useParams();
+    const { onEditMovieSubmit } = useContext(MovieContext);
+    const { values, changeHandler, onSubmit } = useForm({
+        title:'',
+        year: '',
+        genre:'',
+        director:'',
+        coverUrl:'',
+        summary:'',
+    })
+
     return (
         <>
         <section id="editMovieSection">
-        <form id="editMovieForm" >
+        <form id="editMovieForm" onSubmit={onSubmit} >
             <div className="container">
 
                 <h3 className="edit-header">Edit Movie Details</h3>
