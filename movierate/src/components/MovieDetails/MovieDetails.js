@@ -20,7 +20,7 @@ export const MovieDetails = () => {
             })
     },[movieId])
 
-    const isOwner = movie._ownerId === userId
+    const isOwner = movie._ownerId === userId;
 
     return(
         <>
@@ -39,6 +39,12 @@ export const MovieDetails = () => {
                             <li className="movie-info-li"><b>Genre: </b>{movie.genre}</li>
                             <li className="movie-info-summary"><p id="text">{movie.summary}</p></li>
                         </ul>
+                        <div className="owner-actions">
+                        <ul>
+                            <li className="owner-li"><button className="btn-primary">Edit</button></li>
+                            <li className="owner-li"><button className="btn-primary">Delete</button></li>
+                        </ul>
+                        </div>
                     </div>
                 </div>
             </section> 
