@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 
 import { movieServiceFactory } from "../../services/movieService";
 
 import "./MovieDetails.css";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export const MovieDetails = () => {
 
     const [movie, setMovie] = useState({});
     const { movieId } = useParams();
+    const { userId } = useContext(AuthContext);
     const movieService = movieServiceFactory()
 
     useEffect(()=> {
@@ -18,6 +20,7 @@ export const MovieDetails = () => {
             })
     },[movieId])
 
+    const isOwner = movie._ownerId === userId
 
     return(
         <>
