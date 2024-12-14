@@ -22,6 +22,7 @@ export const MovieDetails = () => {
     },[movieId])
 
     console.log(movie)
+    console.log(userId)
 
     // const isOwner = movie._ownerId === userId;
 
