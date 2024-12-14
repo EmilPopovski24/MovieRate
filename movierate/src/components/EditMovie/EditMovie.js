@@ -1,15 +1,18 @@
 import { useParams } from "react-router-dom";
-import { useForm } from "../../hooks/useForm";
-import "./EditMovie.css";
 import { useContext, useEffect } from "react";
+
 import { MovieContext } from "../../contexts/MovieContext";
 import { movieServiceFactory } from "../../services/movieService";
+import { useService } from "../../hooks/useService";
+import { useForm } from "../../hooks/useForm";
+
+import "./EditMovie.css";
 
 export const EditMovie = () => {
 
     const { movieId } = useParams();
     const { onEditMovieSubmit } = useContext(MovieContext);
-    const movieService = movieServiceFactory();
+    const movieService = useService(movieServiceFactory);
     const { values, changeHandler, onSubmit, changeValues } = useForm({
         title:'',
         year: '',

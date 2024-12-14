@@ -5,7 +5,7 @@ import { movieServiceFactory } from "../../services/movieService";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useService } from "../../hooks/useService";
 
-import "./MovieDetails.css";
+import './MovieDetails.css';
 
 export const MovieDetails = () => {
 
@@ -21,7 +21,9 @@ export const MovieDetails = () => {
             })
     },[movieId])
 
-    const isOwner = movie._ownerId === userId;
+    console.log(movie)
+
+    // const isOwner = movie._ownerId === userId;
 
     return(
         <>
@@ -40,15 +42,13 @@ export const MovieDetails = () => {
                             <li className="movie-info-li"><b>Genre: </b>{movie.genre}</li>
                             <li className="movie-info-summary"><p id="text">{movie.summary}</p></li>
                         </ul>
+                        {/* {isOwner && (
                         <div className="owner-actions">
-                        {isOwner &&
-                        <ul>
-                            <li className="owner-li"><button className="btn-primary"> <Link to={`/catalog/${movie._id}/edit`}>Edit</Link></button></li>
-                            <li className="owner-li"><button className="btn-primary">Delete</button></li>
-                        </ul>           
-                        }
+                            <button className="btn-primary"><Link to={`/catalog/${movie._id}/edit`}>Edit</Link></button>
+                            <button className="btn-primary">Delete</button>
                         </div>
-                    </div>
+                        )} */}
+                    </div> 
                 </div>
             </section> 
         </section> 
