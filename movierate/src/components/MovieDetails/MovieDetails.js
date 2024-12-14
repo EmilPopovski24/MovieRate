@@ -2,16 +2,17 @@ import { useContext, useEffect, useState, Link } from "react"
 import { useParams } from "react-router-dom";
 
 import { movieServiceFactory } from "../../services/movieService";
+import { AuthContext } from "../../contexts/AuthContext";
+import { useService } from "../../hooks/useService";
 
 import "./MovieDetails.css";
-import { AuthContext } from "../../contexts/AuthContext";
 
 export const MovieDetails = () => {
 
     const [movie, setMovie] = useState({});
     const { movieId } = useParams();
     const { userId } = useContext(AuthContext);
-    const movieService = movieServiceFactory()
+    const movieService = useService(movieServiceFactory);
 
     useEffect(()=> {
         movieService.getOneMovie(movieId)
@@ -39,14 +40,14 @@ export const MovieDetails = () => {
                             <li className="movie-info-li"><b>Genre: </b>{movie.genre}</li>
                             <li className="movie-info-summary"><p id="text">{movie.summary}</p></li>
                         </ul>
-                        {isOwner &&
                         <div className="owner-actions">
+                        {isOwner &&
                         <ul>
                             <li className="owner-li"><button className="btn-primary"> <Link to={`/catalog/${movie._id}/edit`}>Edit</Link></button></li>
                             <li className="owner-li"><button className="btn-primary">Delete</button></li>
-                        </ul>
-                        </div>
+                        </ul>           
                         }
+                        </div>
                     </div>
                 </div>
             </section> 
