@@ -19,10 +19,7 @@ export const MovieDetails = () => {
             .then(result => {
                 setMovie(result)
             })
-    },[movieId])
-
-    console.log(movie)
-    console.log(userId)
+    },[movieId]);
 
     // const isOwner = movie._ownerId === userId;
 
