@@ -21,11 +21,11 @@ export const MovieDetails = () => {
             })
     },[movieId]);
 
-    console.log(`id - ${movie._id}`)
-    console.log(`userId - ${userId}`);
-    console.log(movie)
+    // console.log(`id - ${movie._id}`)
+    // console.log(`userId - ${userId}`);
+    // console.log(movie)
 
-    const isOwner = movie._ownerId === userId;
+    // const isOwner = movie._ownerId === userId;
 
     return(
         <>
