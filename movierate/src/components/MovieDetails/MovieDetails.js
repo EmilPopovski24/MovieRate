@@ -25,8 +25,8 @@ export const MovieDetails = () => {
     // console.log(`userId - ${userId}`);
     // console.log(movie)
 
-    // const isOwner = movie._ownerId === userId;
-
+    const isOwner = movie._ownerId === userId;
+   
     return(
         <>
         <section className="main">
@@ -45,12 +45,12 @@ export const MovieDetails = () => {
                             <li className="movie-info-summary"><p id="text">{movie.summary}</p></li>
                         </ul>
                         <div>
-                        {/* {isOwner && (
+                        {isOwner && (
                         <div className="owner-actions">
-                            <li ><Link to={`/catalog/${movie._id}/edit`}>Edit</Link></li>
-                            <li >Delete</li>
+                            <button><Link to={`/catalog/${movie._id}/edit`}>Edit</Link></button>
+                            <button>Delete</button>
                         </div>
-                        )} */}
+                        )}
                         </div>
                     </div> 
                 </div>
