@@ -12,7 +12,7 @@ export const Register = () => {
     const { values, changeHandler, onSubmit } = useForm({
         email: '',
         password: '',
-        'confirmPassword':''
+        'confirmPassword':'',
     }, onRegisterSubmit)
 
     return (
