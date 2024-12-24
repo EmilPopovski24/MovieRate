@@ -29,13 +29,13 @@ export const MovieDetails = () => {
     // console.log(movie)
 
     const onDeleteMovie = async() => {
-        // const result = confirm((`Are you sure you want to delete ${movie.title}`))
-            // if(result) {
+        // eslint-disable-next-line
+        const result = confirm(`Are you sure you want to delete ${movie.title}?`)
+            if (result) {
                 await deleteMovie(movie._id);
-            // }
+            }       
         navigate("/catalog")
-
-    }
+    };
 
     const isOwner = movie._ownerId === userId;
 
