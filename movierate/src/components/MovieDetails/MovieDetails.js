@@ -102,7 +102,7 @@ export const MovieDetails = () => {
                         </div>
                         )}
                         </div>
-                        { isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit}/>}
+                        { isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} username={username}/>}
                         <div className="movie-comments">
                             <ul className="comments-ul" >   
                             <h5>Comments:</h5>                   

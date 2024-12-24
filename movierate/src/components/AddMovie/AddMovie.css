@@ -1,0 +1,30 @@
+.summary {
+    display: block;
+    width:100%;
+    height:20%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#addMovieSection {
+    width:70%;
+    margin:auto;
+}
+
+.addmovie-header{
+    text-align:center;
+    margin:30px;
+}
+
+.btn-primary {
+    text-decoration: none;
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    margin: 10px;
+}
