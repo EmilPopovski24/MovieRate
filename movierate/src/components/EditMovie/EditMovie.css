@@ -1,3 +1,13 @@
+.edit-header {
+    text-align:center;
+    margin:30px;
+}
+
+#editMovieForm {
+    width:70%;
+    margin:auto;
+}
+
 .btn-primary {
     text-decoration: none;
     background: linear-gradient(
