@@ -45,6 +45,7 @@ export const MovieDetails = () => {
             ...state, 
             comments: [...state.comments, response]
         }))     
+        console.log(response)
     };
 
 
@@ -78,6 +79,18 @@ export const MovieDetails = () => {
                         )}
                         </div>
                         { isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit}/>}
+                        <div className="movie-comments">
+                            <ul className="comments-ul" >                      
+                                {movie.comments && Object.values(movie.comments).map(x => (
+                                    <>
+                                    <h5>Comments:</h5>
+                                    <li key={x._id} className="comment">
+                                        <p className="comment-text">{x.comment}</p>
+                                    </li>
+                                    </> 
+                                ))}
+                            </ul>  
+                        </div>
                     </div> 
                 </div>
             </section> 
