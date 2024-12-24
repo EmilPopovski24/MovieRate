@@ -13,6 +13,7 @@ export const MovieDetails = () => {
 
     const navigate = useNavigate();
     const [movie, setMovie] = useState({});
+    const [comments, setComments] = useState([]);
     const { movieId } = useParams();
     const { userId, isAuthenticated } = useContext(AuthContext);
     const { deleteMovie } = useContext(MovieContext);
@@ -33,6 +34,8 @@ export const MovieDetails = () => {
             }       
         navigate("/catalog")
     };
+
+    console.log(comments)
 
     const isOwner = movie._ownerId === userId;
    

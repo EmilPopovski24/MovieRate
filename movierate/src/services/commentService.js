@@ -18,10 +18,8 @@ export const commentServiceFactory = (token) => {
         return comments
     }
 
-
     return {
         addComment,
         getAllComments
     }
-
 }
