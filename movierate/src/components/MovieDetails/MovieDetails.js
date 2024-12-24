@@ -4,11 +4,13 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { movieServiceFactory } from "../../services/movieService";
 import { AuthContext } from "../../contexts/AuthContext";
 import { MovieContext } from "../../contexts/MovieContext";
+import { AddComment } from "./AddComent/AddComment";
 import { useService } from "../../hooks/useService";
+import * as commmentService from '../../services/commentService';
 
 import './MovieDetails.css';
-import { AddComment } from "./AddComent/AddComment";
-import { commentServiceFactory } from "../../services/commentService";
+
+// import { commentServiceFactory } from "../../services/commentService";
 
 export const MovieDetails = () => {
 
@@ -16,9 +18,9 @@ export const MovieDetails = () => {
     const [movie, setMovie] = useState({});
     const [comments, setComments] = useState([]);
     const { movieId } = useParams();
-    const { userId, isAuthenticated } = useContext(AuthContext);
+    const { userId, isAuthenticated, username } = useContext(AuthContext);
     const { deleteMovie } = useContext(MovieContext);
-    const { commmentService } = useService(commentServiceFactory);
+    // const { commmentService } = useService(commentServiceFactory);
     const movieService = useService(movieServiceFactory);
 
     useEffect(()=> {
@@ -43,9 +45,12 @@ export const MovieDetails = () => {
         //new reference for new data
         setMovie (state => ({
             ...state, 
-            comments: [...state.comments, response]
+            comments: [...state.comments, {response,
+                author:{
+                    username,
+                }
+            }]
         }))     
-        console.log(response)
     };
 
 
