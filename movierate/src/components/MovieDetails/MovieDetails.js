@@ -24,17 +24,29 @@ export const MovieDetails = () => {
     const movieService = useService(movieServiceFactory);
 
     useEffect(()=> {
-        Promise.all([
-            movieService.getOneMovie(movieId),
-            commmentService.getAllComments(movieId)
-        ])
-            .then(([movieData, comments]) => {
-                    setMovie({
-                        ...movieData,
-                        comments, 
-                    })
-                })
+        movieService.getOneMovie(movieId)
+            .then(result => {
+                setMovie(result)
+                return commmentService.getAllComments(movieId)
+            })
+            .then(result => {
+                setComments(result);
+            })
     }, [movieId]);
+
+
+    // useEffect(()=> {
+    //     Promise.all([
+    //         movieService.getOneMovie(movieId),
+    //         commmentService.getAllComments(movieId)
+    //     ])
+    //         .then(([movieData, comments]) => {
+    //                 setMovie({
+    //                     ...movieData,
+    //                     comments, 
+    //                 })
+    //             })
+    // }, [movieId]);
 
 
     const onDeleteMovie = async() => {
