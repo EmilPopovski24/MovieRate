@@ -28,10 +28,14 @@ export const MovieDetails = () => {
             movieService.getOneMovie(movieId),
             commmentService.getAllComments(movieId)
         ])
-            .then(result => {
-                setMovie(result)
-            })
-    },[movieId]);
+            .then(([movieData, comments]) => {
+                    setMovie({
+                        ...movieData,
+                        comments, 
+                    })
+                })
+    }, [movieId]);
+
 
     const onDeleteMovie = async() => {
         // eslint-disable-next-line
@@ -88,14 +92,12 @@ export const MovieDetails = () => {
                         </div>
                         { isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit}/>}
                         <div className="movie-comments">
-                            <ul className="comments-ul" >                      
-                                {movie.comments && Object.values(movie.comments).map(x => (
-                                    <>
-                                    <h5>Comments:</h5>
+                            <ul className="comments-ul" >   
+                            <h5>Comments:</h5>                   
+                                {movie.comments && Object.values(movie.comments).map(x => (                                  
                                     <li key={x._id} className="comment">
                                         <p className="comment-text">{x.comment}</p>
                                     </li>
-                                    </> 
                                 ))}
                             </ul>  
                         </div>
