@@ -8,6 +8,7 @@ import { useService } from "../../hooks/useService";
 
 import './MovieDetails.css';
 import { AddComment } from "./AddComent/AddComment";
+import { commentServiceFactory } from "../../services/commentService";
 
 export const MovieDetails = () => {
 
@@ -17,6 +18,7 @@ export const MovieDetails = () => {
     const { movieId } = useParams();
     const { userId, isAuthenticated } = useContext(AuthContext);
     const { deleteMovie } = useContext(MovieContext);
+    const { commmentService } = useService(commentServiceFactory);
     const movieService = useService(movieServiceFactory);
 
     useEffect(()=> {
@@ -34,6 +36,17 @@ export const MovieDetails = () => {
             }       
         navigate("/catalog")
     };
+
+    const onCommentSubmit = async (values) => {        
+        const response = await commmentService.addComment(movieId, values.comment);
+        // console.log(response)
+        //new reference for new data
+        setMovie (state => ({
+            ...state, 
+            comments: [...state.comments, response]
+        }))     
+    };
+
 
     console.log(comments)
 
@@ -64,7 +77,7 @@ export const MovieDetails = () => {
                         </div>
                         )}
                         </div>
-                        { isAuthenticated && <AddComment />}
+                        { isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit}/>}
                     </div> 
                 </div>
             </section> 
