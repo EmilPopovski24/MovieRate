@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { movieServiceFactory } from "../../services/movieService";
 import { AuthContext } from "../../contexts/AuthContext";
 import { MovieContext } from "../../contexts/MovieContext";
-import { AddComment } from "./AddComent/AddComment";
+import { AddComment } from "./AddComment/AddComment";
 import { useService } from "../../hooks/useService";
 import * as commmentService from '../../services/commentService';
 
