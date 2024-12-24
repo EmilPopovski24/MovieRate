@@ -1,4 +1,26 @@
-.submit-btn {
+.comment-area {
+    border:solid 2px#23a2f6
+}
+
+.submit-comment-btn {
     display: block;
-    
+    text-decoration: none;
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+}
+
+.submit-comment-btn:hover {
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+    text-decoration: none;
+    color: white;
 }
