@@ -34,9 +34,14 @@ export const MovieProvider = ({
         navigate(`/catalog/${values._id}`)
     }
 
+    const deleteMovie = (movieId) => {
+        setMovies(state => state.filter(movie => movie._id !==movieId))
+    }
+
     const contextValues = {
         onAddMovieSubmit,
         onEditMovieSubmit,
+        deleteMovie,
         movies
     }
 

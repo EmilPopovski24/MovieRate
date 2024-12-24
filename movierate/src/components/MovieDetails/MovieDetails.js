@@ -1,17 +1,20 @@
 import { useContext, useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import { movieServiceFactory } from "../../services/movieService";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useService } from "../../hooks/useService";
 
 import './MovieDetails.css';
+import { MovieContext } from "../../contexts/MovieContext";
 
 export const MovieDetails = () => {
 
+    const navigate = useNavigate();
     const [movie, setMovie] = useState({});
     const { movieId } = useParams();
     const { userId } = useContext(AuthContext);
+    const { deleteMovie } = useContext(MovieContext);
     const movieService = useService(movieServiceFactory);
 
     useEffect(()=> {
@@ -25,9 +28,18 @@ export const MovieDetails = () => {
     // console.log(`userId - ${userId}`);
     // console.log(movie)
 
+    const onDeleteMovie = async() => {
+        // const result = confirm((`Are you sure you want to delete ${movie.title}`))
+            // if(result) {
+                await deleteMovie(movie._id);
+            // }
+        navigate("/catalog")
+
+    }
+
     const isOwner = movie._ownerId === userId;
 
-    console.log(isOwner)
+    // console.log(isOwner)
    
     return(
         <>
@@ -50,7 +62,7 @@ export const MovieDetails = () => {
                         {isOwner && (
                         <div className="owner-actions">
                             <button className="btn-primary"><Link to={`/catalog/${movie._id}/editmovie`}>Edit</Link></button>
-                            <button className="btn-primary">Delete</button>
+                            <button className="btn-primary" onClick={onDeleteMovie}>Delete</button>
                         </div>
                         )}
                         </div>
