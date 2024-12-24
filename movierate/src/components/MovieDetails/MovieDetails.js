@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState, Link } from "react"
-import { useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react"
+import { Link, useParams } from "react-router-dom";
 
 import { movieServiceFactory } from "../../services/movieService";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -21,11 +21,13 @@ export const MovieDetails = () => {
             })
     },[movieId]);
 
-    console.log(`id - ${movie._id}`)
-    console.log(`userId - ${userId}`);
-    console.log(movie)
+    // console.log(`id - ${movie._id}`)
+    // console.log(`userId - ${userId}`);
+    // console.log(movie)
 
     const isOwner = movie._ownerId === userId;
+
+    console.log(isOwner)
    
     return(
         <>
@@ -47,8 +49,8 @@ export const MovieDetails = () => {
                         <div>
                         {isOwner && (
                         <div className="owner-actions">
-                            <button><Link to={`/catalog/${movie._id}/edit`}>Edit</Link></button>
-                            <button>Delete</button>
+                            <button className="btn-primary"><Link to={`/catalog/${movie._id}/edit`}>Edit</Link></button>
+                            <button className="btn-primary">Delete</button>
                         </div>
                         )}
                         </div>

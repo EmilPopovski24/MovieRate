@@ -45,7 +45,10 @@ body{
         #1845ad,
         #23a2f6
     );
-    color: antiquewhite;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
 }
 
 .btn-primary:hover {
