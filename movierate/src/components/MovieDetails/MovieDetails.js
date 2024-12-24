@@ -49,7 +49,7 @@ export const MovieDetails = () => {
                         <div>
                         {isOwner && (
                         <div className="owner-actions">
-                            <button className="btn-primary"><Link to={`/catalog/${movie._id}/edit`}>Edit</Link></button>
+                            <button className="btn-primary"><Link to={`/catalog/${movie._id}/editmovie`}>Edit</Link></button>
                             <button className="btn-primary">Delete</button>
                         </div>
                         )}

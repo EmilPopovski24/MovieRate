@@ -23,8 +23,8 @@ export const movieServiceFactory = (token) => {
         return result
     };
 
-    const editMovie = async(movieId) => {
-        const result = await request.put(`${moviesUrl}/${movieId}`);
+    const editMovie = async(movieId, movieData) => {
+        const result = await request.put(`${moviesUrl}/${movieId}`, movieData);
         return result
     }
 

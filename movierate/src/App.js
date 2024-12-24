@@ -32,7 +32,7 @@ function App() {
 				<Route path="/catalog" element={<Catalog />} />
 				<Route path='/catalog/:movieId' element={<MovieDetails />} />
 				<Route path='/addmovie' element={<AddMovie />} />
-				<Route path="/editmovie" element={<EditMovie />} />
+				<Route path="/catalog/:movieId/editmovie" element={<EditMovie />} />
 				<Route path='/account' element={<Account />} />
       		</Routes>
 			</div>
