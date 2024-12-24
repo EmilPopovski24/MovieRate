@@ -24,7 +24,10 @@ export const MovieDetails = () => {
     const movieService = useService(movieServiceFactory);
 
     useEffect(()=> {
-        movieService.getOneMovie(movieId)
+        Promise.all([
+            movieService.getOneMovie(movieId),
+            commmentService.getAllComments(movieId)
+        ])
             .then(result => {
                 setMovie(result)
             })
@@ -45,7 +48,7 @@ export const MovieDetails = () => {
         //new reference for new data
         setMovie (state => ({
             ...state, 
-            comments: [...state.comments, {response,
+            comments: [...comments, {response,
                 author:{
                     username,
                 }
