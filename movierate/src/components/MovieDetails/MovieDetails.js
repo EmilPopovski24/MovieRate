@@ -7,13 +7,14 @@ import { MovieContext } from "../../contexts/MovieContext";
 import { useService } from "../../hooks/useService";
 
 import './MovieDetails.css';
+import { AddComment } from "./AddComent/AddComment";
 
 export const MovieDetails = () => {
 
     const navigate = useNavigate();
     const [movie, setMovie] = useState({});
     const { movieId } = useParams();
-    const { userId } = useContext(AuthContext);
+    const { userId, isAuthenticated } = useContext(AuthContext);
     const { deleteMovie } = useContext(MovieContext);
     const movieService = useService(movieServiceFactory);
 
@@ -60,6 +61,7 @@ export const MovieDetails = () => {
                         </div>
                         )}
                         </div>
+                        { isAuthenticated && <AddComment />}
                     </div> 
                 </div>
             </section> 
