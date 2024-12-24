@@ -3,10 +3,10 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 import { movieServiceFactory } from "../../services/movieService";
 import { AuthContext } from "../../contexts/AuthContext";
+import { MovieContext } from "../../contexts/MovieContext";
 import { useService } from "../../hooks/useService";
 
 import './MovieDetails.css';
-import { MovieContext } from "../../contexts/MovieContext";
 
 export const MovieDetails = () => {
 
