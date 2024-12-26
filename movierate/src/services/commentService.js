@@ -6,6 +6,7 @@ const baseUrl = 'http://localhost:3030/data/comments';
 
      export const addComment = async(movieId, commentData) => {
         const result = await request.post(baseUrl, {movieId, commentData});
+        console.log(result)
         return result
     }
 

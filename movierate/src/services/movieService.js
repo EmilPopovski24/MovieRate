@@ -28,8 +28,6 @@ export const movieServiceFactory = (token) => {
         return result
     }
 
-
-
     return {
         addMovie,
         getAllMovies,
