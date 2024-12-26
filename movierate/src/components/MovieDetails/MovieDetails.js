@@ -10,7 +10,6 @@ import * as commmentService from '../../services/commentService';
 
 import './MovieDetails.css';
 
-// import { commentServiceFactory } from "../../services/commentService";
 
 export const MovieDetails = () => {
 
@@ -19,7 +18,7 @@ export const MovieDetails = () => {
     // const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
     const { movieId } = useParams();
-    const { userId, isAuthenticated } = useContext(AuthContext);
+    const { userId, isAuthenticated, username } = useContext(AuthContext);
     const { deleteMovie } = useContext(MovieContext);
     // const { commmentService } = useService(commentServiceFactory);
     const movieService = useService(movieServiceFactory);
@@ -65,12 +64,12 @@ export const MovieDetails = () => {
         //new reference for new data
         setMovie (state => ({
             ...state, 
-            comments: [...comments, response
-            //     {...response,
-            //     author:{
-            //         username,
-            //     }
-            // }
+            comments: [...comments,
+                {...response,
+                author:{
+                    username,
+                }
+            }
         ]
         }))  
         // setComment('');  
