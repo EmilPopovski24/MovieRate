@@ -16,6 +16,7 @@ export const MovieDetails = () => {
 
     const navigate = useNavigate();
     const [movie, setMovie] = useState({});
+    const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
     const { movieId } = useParams();
     const { userId, isAuthenticated, username } = useContext(AuthContext);
@@ -69,7 +70,8 @@ export const MovieDetails = () => {
                     username,
                 }
             }]
-        }))     
+        }))  
+        setComment('');  
     };
 
 
