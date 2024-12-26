@@ -19,7 +19,7 @@ export const MovieDetails = () => {
     // const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
     const { movieId } = useParams();
-    const { userId, isAuthenticated, username } = useContext(AuthContext);
+    const { userId, isAuthenticated } = useContext(AuthContext);
     const { deleteMovie } = useContext(MovieContext);
     // const { commmentService } = useService(commentServiceFactory);
     const movieService = useService(movieServiceFactory);
@@ -105,7 +105,7 @@ export const MovieDetails = () => {
                         </div>
                         )}
                         </div>
-                        { isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit}/>}
+                        { isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}
                         <div className="movie-comments">
                             <ul className="comments-ul" >   
                             <h5>Comments:</h5>                   
