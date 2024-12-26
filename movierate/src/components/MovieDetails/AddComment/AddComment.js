@@ -1,7 +1,7 @@
-import { useContext } from 'react';
+// import { useContext } from 'react';
 import { useForm } from '../../../hooks/useForm';
 
-import { AuthContext } from '../../../contexts/AuthContext';
+// import { AuthContext } from '../../../contexts/AuthContext';
 
 import './AddComment.css';
 
