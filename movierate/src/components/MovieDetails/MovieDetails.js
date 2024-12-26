@@ -16,7 +16,7 @@ export const MovieDetails = () => {
 
     const navigate = useNavigate();
     const [movie, setMovie] = useState({});
-    const [comment, setComment] = useState('');
+    // const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
     const { movieId } = useParams();
     const { userId, isAuthenticated, username } = useContext(AuthContext);
@@ -65,15 +65,14 @@ export const MovieDetails = () => {
         //new reference for new data
         setMovie (state => ({
             ...state, 
-            comments: [...comments, {response,
+            comments: [...comments, {...response,
                 author:{
                     username,
                 }
             }]
         }))  
-        setComment('');  
+        // setComment('');  
     };
-
 
     console.log(comments)
 
@@ -104,13 +103,13 @@ export const MovieDetails = () => {
                         </div>
                         )}
                         </div>
-                        { isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} username={username}/>}
+                        { isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit}/>}
                         <div className="movie-comments">
                             <ul className="comments-ul" >   
                             <h5>Comments:</h5>                   
                                 {comments && Object.values(comments).map(x => (                                  
                                     <li key={x._id} className="comment-li">
-                                        <p className="comment-text"><b>{x.username}: </b>{x.commentData}</p>
+                                        <p className="comment-text"><b>{username}: </b>{x.commentData}</p>
                                     </li>
                                 ))}
                             </ul>  
