@@ -65,11 +65,13 @@ export const MovieDetails = () => {
         //new reference for new data
         setMovie (state => ({
             ...state, 
-            comments: [...comments, {...response,
-                author:{
-                    username,
-                }
-            }]
+            comments: [...comments, response
+            //     {...response,
+            //     author:{
+            //         username,
+            //     }
+            // }
+        ]
         }))  
         // setComment('');  
     };
@@ -109,7 +111,7 @@ export const MovieDetails = () => {
                             <h5>Comments:</h5>                   
                                 {comments && Object.values(comments).map(x => (                                  
                                     <li key={x._id} className="comment-li">
-                                        <p className="comment-text"><b>{username}: </b>{x.commentData}</p>
+                                        <p className="comment-text"><b>{x.author.email}: </b>{x.commentData}</p>
                                     </li>
                                 ))}
                             </ul>  
