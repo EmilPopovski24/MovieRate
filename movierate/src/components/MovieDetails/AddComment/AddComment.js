@@ -20,6 +20,5 @@ export const AddComment = ({
                     <input className ="submit-comment-btn"  type="submit" value="Publish" />
                 </form>                       
         </article>
-
     )
 }
