@@ -24,32 +24,30 @@ export const MovieDetails = () => {
     // const { commmentService } = useService(commentServiceFactory);
     const movieService = useService(movieServiceFactory);
 
-    useEffect(()=> {
-        movieService.getOneMovie(movieId)
-            .then(result => {
-                setMovie(result)
-                return commmentService.getAllComments(movieId)
-            })
-            .then(result => {
-                setComments(result);
-            })
-    }, [movieId]);
+    // useEffect(()=> {
+    //     movieService.getOneMovie(movieId)
+    //         .then(result => {
+    //             setMovie(result)
+    //             return commmentService.getAllComments(movieId)
+    //         })
+    //         .then(result => {
+    //             setComments(result);
+    //         })
+    // }, [movieId]);
 
     
-
-
-    // useEffect(()=> {
-    //     Promise.all([
-    //         movieService.getOneMovie(movieId),
-    //         commmentService.getAllComments(movieId)
-    //     ])
-    //         .then(([movieData, comments]) => {
-    //                 setMovie({
-    //                     ...movieData,
-    //                     comments, 
-    //                 })
-    //             })
-    // }, [movieId]);
+    useEffect(()=> {
+        Promise.all([
+            movieService.getOneMovie(movieId),
+            commmentService.getAllComments(movieId)
+        ])
+            .then(([movieData, comments]) => {
+                    setMovie({
+                        ...movieData,
+                        comments, 
+                    })
+                })
+    }, [movieId]);
 
 
     const onDeleteMovie = async() => {
@@ -62,7 +60,7 @@ export const MovieDetails = () => {
     };
 
     const onCommentSubmit = async (e) => {   
-        e.preventDefault()
+        e.preventDefault();
         const response = await commmentService.addComment({
             movieId,
             comment
@@ -130,7 +128,7 @@ export const MovieDetails = () => {
                             <h5>Comments:</h5>                   
                                 {comments && Object.values(comments).map(x => (                                  
                                     <li key={x._id} className="comment-li">
-                                        <p className="comment-text"><b>{x.author}: </b>{x.commentData}</p>
+                                        <p className="comment-text"><b>{x.author.username}: </b>{x.commentData}</p>
                                     </li>
                                 ))}
                             </ul>  
