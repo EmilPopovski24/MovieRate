@@ -72,7 +72,7 @@ export const MovieDetails = () => {
             }
         ]
         }))  
-        // setComment('');  
+        setComment('');  
     };
 
     console.log(comments)
