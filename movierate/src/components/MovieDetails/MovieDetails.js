@@ -9,6 +9,7 @@ import { useService } from "../../hooks/useService";
 import * as commmentService from '../../services/commentService';
 
 import './MovieDetails.css';
+import { useForm } from "../../hooks/useForm";
 
 
 export const MovieDetails = () => {
@@ -33,6 +34,8 @@ export const MovieDetails = () => {
                 setComments(result);
             })
     }, [movieId]);
+
+    
 
 
     // useEffect(()=> {
@@ -75,6 +78,10 @@ export const MovieDetails = () => {
         // setComment('');  
     };
 
+    const { values, changeHandler, onSubmit } = useForm({
+        comment:'',
+    }, onCommentSubmit)
+
     console.log(comments)
 
     const isOwner = movie._ownerId === userId;
@@ -104,7 +111,16 @@ export const MovieDetails = () => {
                         </div>
                         )}
                         </div>
-                        { isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}
+                        {isAuthenticated && (
+                            <article className="addcomment">
+                            <h4>Add your comment:</h4>
+                                <form className="form" onSubmit={onSubmit}>
+                                    <textarea name ="comment" className="comment-area" placeholder="Your comment..." value={values.comment} onChange={changeHandler}></textarea>
+                                    <input className ="submit-comment-btn"  type="submit" value="Publish" />
+                                </form>                       
+                        </article>
+                        )}
+                        {/* { isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />} */}
                         <div className="movie-comments">
                             <ul className="comments-ul" >   
                             <h5>Comments:</h5>                   
