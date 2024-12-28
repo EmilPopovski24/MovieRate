@@ -59,14 +59,15 @@ export const MovieDetails = () => {
         navigate("/catalog")
     };
 
+    // setMovies(state => [...state, newMovie]);
+
     const onCommentSubmit = async (e) => {   
         e.preventDefault();
         const response = await commmentService.addComment({
             movieId,
             comment
         });
-        // console.log(response)
-        //new reference for new data
+
         setMovie (state => ({
             ...state, 
             comments: [...comments, 
@@ -79,10 +80,6 @@ export const MovieDetails = () => {
         }))  
         setComment('');  
     };
-
-    // const { values, changeHandler, onSubmit } = useForm({
-    //     comment:'',
-    // }, onCommentSubmit)
 
     console.log(comments)
 
