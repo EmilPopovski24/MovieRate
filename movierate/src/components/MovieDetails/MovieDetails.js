@@ -16,10 +16,10 @@ export const MovieDetails = () => {
 
     const navigate = useNavigate();
     const [movie, setMovie] = useState({});
-    // const [comment, setComment] = useState('');
+    const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
     const { movieId } = useParams();
-    const { userId, isAuthenticated } = useContext(AuthContext);
+    const { userId, isAuthenticated, username } = useContext(AuthContext);
     const { deleteMovie } = useContext(MovieContext);
     // const { commmentService } = useService(commentServiceFactory);
     const movieService = useService(movieServiceFactory);
@@ -61,26 +61,30 @@ export const MovieDetails = () => {
         navigate("/catalog")
     };
 
-    const onCommentSubmit = async (values) => {        
-        const response = await commmentService.addComment(movieId, values.comment);
+    const onCommentSubmit = async (e) => {   
+        e.preventDefault()
+        const response = await commmentService.addComment({
+            movieId,
+            comment
+        });
         // console.log(response)
         //new reference for new data
         setMovie (state => ({
             ...state, 
-            comments: [...comments, response
-            //     {...response,
-            //     author:{
-            //         username,
-            //     }
-            // }
+            comments: [...comments, 
+                {...response,
+                author:{
+                    username,
+                }
+            }
         ]
         }))  
-        // setComment('');  
+        setComment('');  
     };
 
-    const { values, changeHandler, onSubmit } = useForm({
-        comment:'',
-    }, onCommentSubmit)
+    // const { values, changeHandler, onSubmit } = useForm({
+    //     comment:'',
+    // }, onCommentSubmit)
 
     console.log(comments)
 
@@ -114,8 +118,8 @@ export const MovieDetails = () => {
                         {isAuthenticated && (
                             <article className="addcomment">
                             <h4>Add your comment:</h4>
-                                <form className="form" onSubmit={onSubmit}>
-                                    <textarea name ="comment" className="comment-area" placeholder="Your comment..." value={values.comment} onChange={changeHandler}></textarea>
+                                <form className="form" onSubmit={onCommentSubmit}>
+                                    <textarea name ="comment" className="comment-area" placeholder="Your comment..." value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
                                     <input className ="submit-comment-btn"  type="submit" value="Publish" />
                                 </form>                       
                         </article>
@@ -126,7 +130,7 @@ export const MovieDetails = () => {
                             <h5>Comments:</h5>                   
                                 {comments && Object.values(comments).map(x => (                                  
                                     <li key={x._id} className="comment-li">
-                                        <p className="comment-text"><b>{x.author.email}: </b>{x.commentData}</p>
+                                        <p className="comment-text"><b>{x.author}: </b>{x.commentData}</p>
                                     </li>
                                 ))}
                             </ul>  
