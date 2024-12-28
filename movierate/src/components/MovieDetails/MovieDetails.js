@@ -59,7 +59,6 @@ export const MovieDetails = () => {
         navigate("/catalog")
     };
 
-    // setMovies(state => [...state, newMovie]);
 
     const onCommentSubmit = async (e) => {   
         e.preventDefault();
@@ -70,8 +69,8 @@ export const MovieDetails = () => {
 
         setMovie (state => ({
             ...state, 
-            comments: [...comments, 
-                {...response,
+            comments: [...comments, {
+                ...response,
                 author:{
                     username,
                 }
