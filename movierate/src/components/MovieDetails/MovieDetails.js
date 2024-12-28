@@ -4,12 +4,12 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { movieServiceFactory } from "../../services/movieService";
 import { AuthContext } from "../../contexts/AuthContext";
 import { MovieContext } from "../../contexts/MovieContext";
-import { AddComment } from "./AddComment/AddComment";
+// import { AddComment } from "./AddComment/AddComment";
 import { useService } from "../../hooks/useService";
 import * as commmentService from '../../services/commentService';
 
 import './MovieDetails.css';
-import { useForm } from "../../hooks/useForm";
+// import { useForm } from "../../hooks/useForm";
 
 
 export const MovieDetails = () => {
@@ -24,30 +24,30 @@ export const MovieDetails = () => {
     // const { commmentService } = useService(commentServiceFactory);
     const movieService = useService(movieServiceFactory);
 
-    // useEffect(()=> {
-    //     movieService.getOneMovie(movieId)
-    //         .then(result => {
-    //             setMovie(result)
-    //             return commmentService.getAllComments(movieId)
-    //         })
-    //         .then(result => {
-    //             setComments(result);
-    //         })
-    // }, [movieId]);
+    useEffect(()=> {
+        movieService.getOneMovie(movieId)
+            .then(result => {
+                setMovie(result)
+                return commmentService.getAllComments(movieId)
+            })
+            .then(result => {
+                setComments(result);
+            })
+    }, [movieId]);
 
     
-    useEffect(()=> {
-        Promise.all([
-            movieService.getOneMovie(movieId),
-            commmentService.getAllComments(movieId)
-        ])
-            .then(([movieData, comments]) => {
-                    setMovie({
-                        ...movieData,
-                        comments, 
-                    })
-                })
-    }, [movieId]);
+    // useEffect(()=> {
+    //     Promise.all([
+    //         movieService.getOneMovie(movieId),
+    //         commmentService.getAllComments(movieId)
+    //     ])
+    //         .then(([movieData, comments]) => {
+    //                 setMovie({
+    //                     ...movieData,
+    //                     comments, 
+    //                 })
+    //             })
+    // }, [movieId]);
 
 
     const onDeleteMovie = async() => {
