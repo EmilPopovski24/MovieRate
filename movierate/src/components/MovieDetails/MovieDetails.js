@@ -70,13 +70,12 @@ export const MovieDetails = () => {
 
         setMovie(state => ({
             ...state, 
-            comments: [...comments, response
-            //     {
-            //     ...response,
-            //     author:{
-            //         username,
-            //     }
-            // }
+            comments: [...comments, {
+                ...response,
+                author:{
+                    username,
+                }
+            }
         ]
         }));
         setComment('');  
@@ -114,7 +113,7 @@ export const MovieDetails = () => {
                         {isAuthenticated && (
                             <article className="addcomment">
                             <h4>Add your comment:</h4>
-                                <form className="form" onSubmit={onCommentSubmit}>
+                                <form className="form" onSubmit={onCommentSubmit} method="POST">
                                     <textarea name ="comment" className="comment-area" placeholder="Your comment..." value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
                                     <input className ="submit-comment-btn"  type="submit" value="Publish" />
                                 </form>                       
