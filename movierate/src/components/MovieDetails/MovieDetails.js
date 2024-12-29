@@ -21,14 +21,14 @@ export const MovieDetails = () => {
     const { movieId } = useParams();
     const { userId, isAuthenticated, username } = useContext(AuthContext);
     const { deleteMovie } = useContext(MovieContext);
-    const { commentService } = useService(commentServiceFactory);
+    const commentService = useService(commentServiceFactory);
     const movieService = useService(movieServiceFactory);
 
     // useEffect(()=> {
     //     movieService.getOneMovie(movieId)
     //         .then(result => {
     //             setMovie(result)
-    //             return commmentService.getAllComments(movieId)
+    //             return commentService.getAllComments(movieId)
     //         })
     //         .then(result => {
     //             setComments(result);
@@ -66,15 +66,17 @@ export const MovieDetails = () => {
             movieId,
             comment
         });
+        console.log(response)
 
         setMovie(state => ({
             ...state, 
-            comments: [...comments, {
-                ...response,
-                author:{
-                    username,
-                }
-            }
+            comments: [...comments, response
+            //     {
+            //     ...response,
+            //     author:{
+            //         username,
+            //     }
+            // }
         ]
         }));
         setComment('');  
