@@ -36,7 +36,7 @@ export const AuthProvider = ({
             alert("Succesful registration");
             navigate("/catalog")
         } catch(error) {
-            alert("User with the same details (email or username) already exists!")
+            alert("User with the same email already exists!")
         }    
     }
 
