@@ -1,19 +1,26 @@
 import { requestFactory } from "./requester";
 
-const baseUrl = 'http://localhost:3030/data/comments';
+const commentsUrl = 'http://localhost:3030/data/comments';
 
-    const request = requestFactory();
+export const commentServiceFactory = (token) => {
 
-     export const addComment = async(movieId, commentData) => {
-        const result = await request.post(baseUrl, {movieId, commentData});
-        console.log(result)
-        return result
-    }
+    const request = requestFactory(token);
 
-    export const getAllComments = async(movieId) => {
+    const addComment = async(data) => {
+        const result = await request.post(commentsUrl, data)
+        return result;
+    };
+
+    const getAllComments = async(movieId) => {
         const query = encodeURIComponent(`movieId="${movieId}"`);
         const author = encodeURIComponent(`author=_ownerId:users`);
-        const result = await request.get(`${baseUrl}?where=${query}&load=${author}`);
-        const comments = Object.values(result);
+        const result = await request.get(`${commentsUrl}?where=${query}&load=${author}`);
+        const comments = Object.values(result)
         return comments
+    };
+    
+    return {
+        addComment,
+        getAllComments    
     }
+}

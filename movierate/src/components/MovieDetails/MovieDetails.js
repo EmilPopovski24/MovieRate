@@ -6,10 +6,10 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { MovieContext } from "../../contexts/MovieContext";
 // import { AddComment } from "./AddComment/AddComment";
 import { useService } from "../../hooks/useService";
-import * as commmentService from '../../services/commentService';
+import { commentServiceFactory } from "../../services/commentService";
 
 import './MovieDetails.css';
-// import { useForm } from "../../hooks/useForm";
+
 
 
 export const MovieDetails = () => {
@@ -21,7 +21,7 @@ export const MovieDetails = () => {
     const { movieId } = useParams();
     const { userId, isAuthenticated, username } = useContext(AuthContext);
     const { deleteMovie } = useContext(MovieContext);
-    // const { commmentService } = useService(commentServiceFactory);
+    const { commentService } = useService(commentServiceFactory);
     const movieService = useService(movieServiceFactory);
 
     // useEffect(()=> {
@@ -39,7 +39,7 @@ export const MovieDetails = () => {
     useEffect(()=> {
         Promise.all([
             movieService.getOneMovie(movieId),
-            commmentService.getAllComments(movieId)
+            commentService.getAllComments(movieId)
         ])
             .then(([movieData, comments]) => {
                     setMovie({
@@ -62,7 +62,7 @@ export const MovieDetails = () => {
 
     const onCommentSubmit = async (e) => {   
         e.preventDefault();
-        const response = await commmentService.addComment({
+        const response = await commentService.addComment({
             movieId,
             comment
         });
