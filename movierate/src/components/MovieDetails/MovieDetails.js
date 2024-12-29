@@ -67,7 +67,7 @@ export const MovieDetails = () => {
             comment
         });
 
-        setMovie (state => ({
+        setMovie(state => ({
             ...state, 
             comments: [...comments, {
                 ...response,
@@ -76,7 +76,7 @@ export const MovieDetails = () => {
                 }
             }
         ]
-        }))  
+        }));
         setComment('');  
     };
 
