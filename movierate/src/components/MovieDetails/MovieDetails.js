@@ -43,7 +43,8 @@ export const MovieDetails = () => {
     useEffect(()=> {
         Promise.all([
             movieService.getOneMovie(movieId),
-            commentService.getAllComments(movieId)
+            commentService.getAllComments(movieId),
+            rateService.getAllRates(movieId)
         ])
             .then(([movieData, comments]) => {
                     setMovie({
