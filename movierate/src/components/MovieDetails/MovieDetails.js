@@ -103,6 +103,7 @@ export const MovieDetails = () => {
     }
 
     console.log(movie.comments)
+    console.log(movie.rates)
 
     const isOwner = movie._ownerId === userId;
    
