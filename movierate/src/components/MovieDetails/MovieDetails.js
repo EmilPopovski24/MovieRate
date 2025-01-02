@@ -87,9 +87,9 @@ export const MovieDetails = () => {
 
     const onRateSubmit = async(e) => {
         e.preventDefault();
-        const response = await commentService.addComment({
+        const response = await rateService.addRate({
             movieId,
-            comment
+            rate
         });
         console.log(response)
 
