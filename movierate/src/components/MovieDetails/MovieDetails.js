@@ -81,7 +81,7 @@ export const MovieDetails = () => {
         setComment('');  
     };
 
-    console.log(comments)
+    console.log(movie.comments)
 
     const isOwner = movie._ownerId === userId;
    
@@ -123,9 +123,9 @@ export const MovieDetails = () => {
                         <div className="movie-comments">
                             <ul className="comments-ul" >   
                             <h5>Comments:</h5>                   
-                                {comments && Object.values(comments).map(x => (                                  
+                                {movie.comments && Object.values(movie.comments).map(x => (                                  
                                     <li key={x._id} className="comment-li">
-                                        <p className="comment-text"><b>{x.author.username}: </b>{x.commentData}</p>
+                                        <p className="comment-text"><b>{x.author.email}: </b>{x.comment}</p>
                                     </li>
                                 ))}
                             </ul>  
