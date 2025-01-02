@@ -9,6 +9,7 @@ import { useService } from "../../hooks/useService";
 import { commentServiceFactory } from "../../services/commentService";
 
 import './MovieDetails.css';
+import { rateServiceFactory } from "../../services/rateService";
 
 
 
@@ -18,11 +19,14 @@ export const MovieDetails = () => {
     const [movie, setMovie] = useState({});
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
+    const [rate, setRate] = useState('');
+    const [rates, setRates] = useState([]);
     const { movieId } = useParams();
     const { userId, isAuthenticated, username } = useContext(AuthContext);
     const { deleteMovie } = useContext(MovieContext);
     const commentService = useService(commentServiceFactory);
     const movieService = useService(movieServiceFactory);
+    const rateService = useService(rateServiceFactory);
 
     // useEffect(()=> {
     //     movieService.getOneMovie(movieId)
@@ -81,6 +85,27 @@ export const MovieDetails = () => {
         setComment('');  
     };
 
+    const onRateSubmit = async(e) => {
+        e.preventDefault();
+        const response = await commentService.addComment({
+            movieId,
+            comment
+        });
+        console.log(response)
+
+        setMovie(state => ({
+            ...state, 
+            rates: [...movie.rates, {
+                ...response,
+                author:{
+                    username,
+                }
+            }
+        ]
+        }));
+        setRate('');  
+    }
+
     console.log(movie.comments)
 
     const isOwner = movie._ownerId === userId;
@@ -108,6 +133,11 @@ export const MovieDetails = () => {
                             <button className="btn-primary"><Link to={`/catalog/${movie._id}/editmovie`}>Edit</Link></button>
                             <button className="btn-primary" onClick={onDeleteMovie}>Delete</button>
                         </div>
+                        )}
+                        {!isOwner && (
+                            <div className="owner-actions">
+                                <button className="btn-primary" onClick={onRateSubmit}>Rate</button>
+                            </div>
                         )}
                         </div>
                         {isAuthenticated && (
