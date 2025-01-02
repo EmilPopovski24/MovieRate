@@ -71,7 +71,7 @@ export const MovieDetails = () => {
             movieId,
             comment
         });
-        console.log(response)
+        // console.log(response)
 
         setMovie(state => ({
             ...state, 
@@ -92,7 +92,7 @@ export const MovieDetails = () => {
             movieId,
             rate
         });
-        console.log(response)
+        // console.log(response)
 
         setMovie( state => ({
             ...state,
