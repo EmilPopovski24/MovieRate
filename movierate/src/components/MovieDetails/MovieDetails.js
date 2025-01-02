@@ -70,7 +70,7 @@ export const MovieDetails = () => {
 
         setMovie(state => ({
             ...state, 
-            comments: [...comments, {
+            comments: [...movie.comments, {
                 ...response,
                 author:{
                     username,
