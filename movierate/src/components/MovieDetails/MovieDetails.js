@@ -131,7 +131,21 @@ export const MovieDetails = () => {
                         )}
                         {!isOwner && (
                             <div className="owner-actions">
-                                <button className="btn-primary" onClick={onRateSubmit}>Rate</button>
+                                <form className="rate-form" onSubmit={onRateSubmit} method="POST">
+                                    <select id="rate" value={rate} onChange={(e) => setRate(e.target.value)}>
+                                        <option value="1" type="number">1</option>
+                                        <option value="2" type="number">2</option>
+                                        <option value="3" type="number">3</option>
+                                        <option value="4" type="number">4</option>
+                                        <option value="5" type="number">5</option>
+                                        <option value="6" type="number">6</option>
+                                        <option value="7" type="number">7</option>
+                                        <option value="8" type="number">8</option>
+                                        <option value="9" type="number">9</option>
+                                        <option value="10" type="number">10</option>
+                                </select>
+                                    <button className='btn-primary' type="submit" style={{"marginTop":"10px"}}>Rate</button>
+                                </form>
                             </div>
                         )}
                         </div>
