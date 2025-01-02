@@ -93,16 +93,11 @@ export const MovieDetails = () => {
         });
         console.log(response)
 
-        setMovie(state => ({
-            ...state, 
-            rates: [...movie.rates, {
-                ...response,
-                author:{
-                    username,
-                }
-            }
-        ]
-        }));
+        setMovie( state => ({
+            ...state,
+            rates: [...rates, response]
+        }))
+
         setRate('');  
     }
 
