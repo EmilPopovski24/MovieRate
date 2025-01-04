@@ -16,10 +16,17 @@ export const AuthProvider = ({
     const authService = authServiceFactory(auth.accessToken);
 
     const onLoginSubmit = async(loginData) => {
-        const result = await authService.login(loginData);
-        setAuth(result);
-        navigate('/catalog');
-        alert('Welcome!')
+
+        try {
+            const result = await authService.login(loginData);
+            setAuth(result);
+            navigate('/catalog');
+            alert('Welcome!')
+        }
+        catch (error) {
+            alert('No such user registered!')
+        }   
+        
     };
 
     const onRegisterSubmit = async(data) => {

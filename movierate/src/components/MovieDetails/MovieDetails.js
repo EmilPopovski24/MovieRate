@@ -28,31 +28,31 @@ export const MovieDetails = () => {
     const movieService = useService(movieServiceFactory);
     const rateService = useService(rateServiceFactory);
 
-    // useEffect(()=> {
-    //     movieService.getOneMovie(movieId)
-    //         .then(result => {
-    //             setMovie(result)
-    //             return commentService.getAllComments(movieId)
-    //         })
-    //         .then(result => {
-    //             setComments(result);
-    //         })
-    // }, [movieId]);
+    useEffect(()=> {
+        movieService.getOneMovie(movieId)
+            .then(result => {
+                setMovie(result)
+                return commentService.getAllComments(movieId)
+            })
+            .then(result => {
+                setComments(result);
+            })
+    }, [movieId]);
 
     
-    useEffect(()=> {
-        Promise.all([
-            movieService.getOneMovie(movieId),
-            commentService.getAllComments(movieId),
-            rateService.getAllRates(movieId)
-        ])
-            .then(([movieData, comments]) => {
-                    setMovie({
-                        ...movieData,
-                        comments, 
-                    })
-                })
-    }, [movieId]);
+    // useEffect(()=> {
+    //     Promise.all([
+    //         movieService.getOneMovie(movieId),
+    //         commentService.getAllComments(movieId),
+    //         rateService.getAllRates(movieId)
+    //     ])
+    //         .then(([movieData, comments]) => {
+    //                 setMovie({
+    //                     ...movieData,
+    //                     comments, 
+    //                 })
+    //             })
+    // }, [movieId]);
 
 
     const onDeleteMovie = async() => {
@@ -164,7 +164,7 @@ export const MovieDetails = () => {
                         <div className="movie-comments">
                             <ul className="comments-ul" >   
                             <h5>Comments:</h5>                   
-                                {movie.comments && Object.values(movie.comments).map(x => (                                  
+                                {comments && Object.values(comments).map(x => (                                  
                                     <li key={x._id} className="comment-li">
                                         <p className="comment-text"><b>{x.author.email}: </b>{x.comment}</p>
                                         <hr></hr>
