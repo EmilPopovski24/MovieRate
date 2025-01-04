@@ -102,8 +102,8 @@ export const MovieDetails = () => {
         setRate('');  
     }
 
-    console.log(movie.comments)
-    console.log(movie.rates)
+    console.log(comments)
+    console.log(rates)
 
     const isOwner = movie._ownerId === userId;
    
@@ -153,7 +153,7 @@ export const MovieDetails = () => {
                         </div>
                         {isAuthenticated && (
                             <article className="addcomment">
-                            <h4>Add your comment:</h4>
+                            <h5>Add your comment:</h5>
                                 <form className="form" onSubmit={onCommentSubmit} method="POST">
                                     <textarea name ="comment" className="comment-area" placeholder="Your comment..." value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
                                     <input className ="submit-comment-btn"  type="submit" value="Publish" />

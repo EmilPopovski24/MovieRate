@@ -10,7 +10,7 @@ h1 {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
-h5 {
+.welcome-message {
     color: linear-gradient(
         #1845ad,
         #23a2f6
