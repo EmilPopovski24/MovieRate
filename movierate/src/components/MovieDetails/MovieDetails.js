@@ -75,7 +75,7 @@ export const MovieDetails = () => {
 
         setMovie(state => ({
             ...state, 
-            comments: [...movie.comments, {
+            comments: [...comments, {
                 ...response,
                 author:{
                     username,
