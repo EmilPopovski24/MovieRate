@@ -1,7 +1,4 @@
-// import { useContext } from 'react';
 import { useForm } from '../../../hooks/useForm';
-
-// import { AuthContext } from '../../../contexts/AuthContext';
 
 import './AddComment.css';
 
@@ -9,7 +6,6 @@ export const AddComment = ({
     onCommentSubmit
 }) => {
 
-    // const { username } = useContext(AuthContext);
     const { values, changeHandler, onSubmit } = useForm({
         comment:'',
     }, onCommentSubmit)
