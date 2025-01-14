@@ -47,6 +47,9 @@ export const Header = () => {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/logout">Logout</Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/forum">Forum</Link>
+                            </li>
                             <li className="nav-item-username">
                                 <h6>Hello, {userEmail.split('@')[0]}</h6>
                             </li>
