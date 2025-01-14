@@ -15,6 +15,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import { MovieProvider } from './contexts/MovieContext';
 
 import './App.css';
+import { Forum } from './components/Forum/Forum';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
 				<Route path='/addmovie' element={<AddMovie />} />
 				<Route path="/catalog/:movieId/editmovie" element={<EditMovie />} />
 				<Route path='/account' element={<Account />} />
+				<Route path='/forum' element={<Forum />} />
       		</Routes>
 			</div>
 		<Footer />
