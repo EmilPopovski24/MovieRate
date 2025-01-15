@@ -7,8 +7,16 @@ export const Account = () => {
     const { userEmail } = useContext(AuthContext)
 
     return (
+        
         <>
-        <h5>Username: {userEmail.split("@")[0]}</h5>
+            <div className="card">   
+                <h3>Personal Info</h3> 
+                <ul>
+                    <li>Username: {userEmail.split("@")[0]}</li>
+                    <li>Email: {userEmail}</li>
+                </ul>   
+            </div>     
         </>
+    
     )
 }
