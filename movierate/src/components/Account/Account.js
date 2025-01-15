@@ -4,11 +4,11 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 export const Account = () => {
 
-    const { username } = useContext(AuthContext)
+    const { userEmail } = useContext(AuthContext)
 
     return (
         <>
-        {username}
+        <h5>Username: {userEmail.split("@")[0]}</h5>
         </>
     )
 }
