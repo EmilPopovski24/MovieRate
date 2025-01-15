@@ -1,13 +1,14 @@
 import { useContext } from "react";
-import "./Account.css";
+
 import { AuthContext } from "../../contexts/AuthContext";
+
+import "./Account.css";
 
 export const Account = () => {
 
     const { userEmail } = useContext(AuthContext)
 
     return (
-        
         <>
             <div className="card">   
                 <h3>Personal Info</h3> 
